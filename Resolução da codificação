@@ -1,0 +1,66 @@
+# Resolução das questões para a vaga de estagiário em analise e Desenvolvimento.
+
+1 -Dado a sequência de Fibonacci, onde se inicia por 0 e 1 e o próximo valor sempre será a soma dos 2 valores anteriores (exemplo: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34...), 
+escreva um programa na linguagem que desejar onde, informado um número, ele calcule a sequência de Fibonacci e retorne uma mensagem avisando se o número informado 
+pertence ou não a sequência. 
+
+n = 100
+t1 = 1
+t2 = 1
+cont = 0
+fib = [0,1,1]
+for i in range(0, n+1):
+    cont = t1 + t2
+    t1 = cont
+    t2 = (cont - t2)
+    fib.append(cont)
+while True:
+    termo = int(input('Digite um valor e veja se ele está presente na sequência Fibonacci: '))
+    if termo in fib:
+        print('Está presente')
+    else:
+        print('Não está presente')
+    resp = ' '
+    while resp not in 'SN':
+        resp = str(input('Deseja continuar [S/N]: ')).strip().upper()
+    if resp == 'N':
+        break
+print('Fim do Programa')
+
+2-Dado um vetor que guarda o valor de faturamento diário de uma distribuidora, faça um programa, na linguagem que desejar, que calcule e retorne: 
+• O menor valor de faturamento ocorrido em um dia do mês; 
+• O maior valor de faturamento ocorrido em um dia do mês; 
+• Número de dias no mês em que o valor de faturamento diário foi superior à média mensal. 
+
+3-Dado o valor de faturamento mensal de uma distribuidora, detalhado por estado: 
+
+SP – R$67.836,43 
+RJ – R$36.678,66 
+MG – R$29.229,88 
+ES – R$27.165,48 
+Outros – R$19.849,53 
+
+Sp = float(67836.38)
+Rj = float(36678.66)
+Mg = float(29229.88)
+Es = float(27162.48)
+Outros = float(19849.53)
+total = Sp + Rj + Mg + Es + Outros
+
+print('Percentual de representação por estados')
+p_sp = Sp*100/total
+p_rj = Rj*100/total
+p_mg = Mg*100/total
+p_es = Es*100/total
+p_outros = Outros*100/total
+
+print(f'''O faturamento do estado de São Paulo foi de R${Sp} o que representa a porcentagem de {p_sp:.2f}% para o total de R${total:.2f}
+O faturamento do estado do Rio de Janeiro foi de R${Rj} o que representa a porcentagem de {p_rj:.2f}% para o total de R${total:.2f}
+O faturamento do estado de Minas Gerais foi de R${Mg} o que representa a porcentagem de {p_mg:.2f}% para o total de R${total:.2f}
+O faturamento do estado do Espírito Santo foi de R${Es} o que representa a porcentagem de {p_es:.2f}% para o total de R${total:.2f}
+O faturamento dos outros estados foi de R${Outros} o que representa a porcentagem de {p_outros:.2f}% para o total de R${total:.2f}''')
+
+4-Escreva um programa que inverta os caracteres de um string.
+
+letra = str(input('Digite uma palavra e veja a sua forma invertida: '))[::-1]
+print(letra)
